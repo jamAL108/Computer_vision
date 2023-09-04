@@ -19,11 +19,20 @@ sobel_x = np.uint8(np.absolute(sobel_X))
 sobel_Y = cv2.Sobel(resized_img,cv2.CV_64F,0,1)
 sobel_y = np.uint8(np.absolute(sobel_Y))
 
+# combining sobel_x and sobel_y
+combined_img = cv2.bitwise_or(sobel_y,sobel_x)
+
+# canny Edge Detection
+canny_img = cv2.Canny(resized_img,100,200)
+
+
 #making a list for all these images and giving them appropiate titles
-images =[resized_img,lap_img,sobel_x,sobel_y]
-titles =['messi','laplacian_img','sobel_x','sobel_y']
-for i in range(4):
-    plt.subplot(2,2,i+1) , plt.imshow(images[i],'gray')
+images =[resized_img,lap_img,sobel_x,sobel_y,combined_img,canny_img]
+titles =['messi','laplacian_img','sobel_x','sobel_y','combined_img','canny_img']
+
+plt.figure(figsize=(10,6))
+for i in range(6):
+    plt.subplot(3,2,i+1) , plt.imshow(images[i],'gray')
     plt.title(titles[i])
     plt.yticks([]),plt.xticks([])
 plt.show()
