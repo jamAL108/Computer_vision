@@ -4,7 +4,7 @@ def XY_cal(event,x,y,flag,param):
     if event == cv2.EVENT_LBUTTONDOWN:
         print(x)
         print(y)
-img = cv2.imread('messi.jpg')
+img = cv2.imread('images/messi.jpg')
 img2 = cv2.imread('goat.jpg')
 print(img.shape)
 print(img.size)

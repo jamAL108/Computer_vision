@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # normal image
-img = cv2.imread('messi.jpg',cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('images/sudoku.jpg', cv2.IMREAD_GRAYSCALE)
 resized_img = cv2.resize(img,(720,520))
 
 # laplacian image
@@ -23,7 +23,7 @@ sobel_y = np.uint8(np.absolute(sobel_Y))
 combined_img = cv2.bitwise_or(sobel_y,sobel_x)
 
 # canny Edge Detection
-canny_img = cv2.Canny(resized_img,100,200)
+canny_img = cv2.Canny(resized_img,100,200,apertureSize=3)
 
 
 #making a list for all these images and giving them appropiate titles
